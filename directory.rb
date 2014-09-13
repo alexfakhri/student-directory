@@ -1,16 +1,3 @@
-#Modifying code to put students into an array
-students = [
-  {:name => "Dr. Hannibal Lecter", :cohort => :september},
-  {:name => "Darth Vader", :cohort => :september},
-  {:name => "Nurse Ratched", :cohort => :september},
-  {:name => "Michael Corleone", :cohort => :september},
-  {:name => "Alex De Large", :cohort => :september},
-  {:name => "The Alien", :cohort => :september},
-  {:name => "Terminator", :cohort => :september},
-  {:name => "Freddy Kruger", :cohort => :september},
-  {:name => "The Joker", :cohort => :september}
-]
-
 def print_header
 	puts "The students of my cohort at Makers Academy"
 	puts "----------"
@@ -26,6 +13,26 @@ def print_footer(names)
 	puts "Overall, we have #{names.length} great students"
 end
 
+def input_students
+	puts "Please enter the names of the students"
+	puts "To finish, just hit return twice"
+	#create an empty array
+	students = []
+	#get the first name
+	name = gets.chomp
+	#while the name is not empty, repeat this code
+	while !name.empty? do
+		#add the student hash to the array
+		students << {:name => name, :cohort => :september}
+		puts "now We have #{students.length} students"
+		#get another name from the user
+		name = gets.chomp
+	end
+	#return the array of students
+	students
+end
+
+students = input_students
 print_header
 print(students)
 print_footer(students)
